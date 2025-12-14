@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.tcl"
+  variable script "/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.tcl"
   variable category "vivado_synth"
 }
 
@@ -62,21 +62,21 @@ create_project -in_memory -part xc7z020clg400-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.cache/wt [current_project]
-set_property parent.project_path /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.xpr [current_project]
+set_property webtalk.parent_dir /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.cache/wt [current_project]
+set_property parent.project_path /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {/home/tuna-gun/.Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:zybo-z7-20:part0:1.1 [current_project]
-set_property ip_output_repo /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.cache/ip [current_project]
+set_property ip_output_repo /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/parameters.vh
-read_mem /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction.mem
+read_verilog /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/parameters.vh
+read_mem /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction.mem
 read_verilog -library xil_defaultlib -sv {
-  /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv
-  /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv
+  /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv
+  /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -88,6 +88,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/utils_1/imports/synth_1/pc_eye.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

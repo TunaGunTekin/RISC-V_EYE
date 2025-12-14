@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "parameters.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Project Name: RISC-V EYE
 // Description: Real-Time Object Detection on FPGA Using RISC-V Architecture Graduation Project for Hacettepe University Electrical and Electronics Engineering. 
@@ -8,10 +9,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module alu_eye(
-    input  logic [31:0] src1_in,
-    input  logic [31:0] src2_in,
+    input  logic [`DATA_WIDTH-1:0] src1_in,
+    input  logic [`DATA_WIDTH-1:0] src2_in,
     input  logic [3:0]  alu_control_in,
-    output reg   [31:0] alu_result_out,
+    output reg   [`DATA_WIDTH-1:0] alu_result_out,
     output reg          zero_flag_out, c_flag_out, ov_flag_out, sign_flag_out
     );
 

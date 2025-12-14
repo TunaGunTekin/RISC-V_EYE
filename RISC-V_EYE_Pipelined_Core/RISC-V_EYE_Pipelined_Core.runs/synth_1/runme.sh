@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1'
+HD_PWD='/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

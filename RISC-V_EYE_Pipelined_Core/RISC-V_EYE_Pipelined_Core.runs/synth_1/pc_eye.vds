@@ -3,41 +3,46 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Wed Dec  3 18:14:55 2025
-# Process ID         : 101082
-# Current directory  : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1
+# Start of session at: Sun Dec 14 13:46:13 2025
+# Process ID         : 76869
+# Current directory  : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1
 # Command line       : vivado -log pc_eye.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pc_eye.tcl
-# Log file           : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.vds
-# Journal file       : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/vivado.jou
+# Log file           : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.vds
+# Journal file       : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/vivado.jou
 # Running On         : tunagun
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
-# CPU Frequency      : 2500.007 MHz
+# CPU Frequency      : 2500.055 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 16631 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20926 MB
-# Available Virtual  : 13913 MB
+# Available Virtual  : 13696 MB
 #-----------------------------------------------------------
 source pc_eye.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/utils_1/imports/synth_1/pc_eye.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/utils_1/imports/synth_1/pc_eye.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top pc_eye -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 101236
+INFO: [Synth 8-7075] Helper process launched with PID 77000
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1742.836 ; gain = 295.859 ; free physical = 548 ; free virtual = 12407
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1746.547 ; gain = 333.859 ; free physical = 1059 ; free virtual = 12157
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'pc_eye' [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv:11]
-INFO: [Synth 8-6157] synthesizing module 'instruction_memory_eye' [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:13]
-CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file 'instructions.mem'; please make sure the file is added to project and has read permission, ignoring [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'instruction_memory_eye' (0#1) [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:13]
-INFO: [Synth 8-6155] done synthesizing module 'pc_eye' (0#1) [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv:11]
-WARNING: [Synth 8-3848] Net instruction_memory in module/entity instruction_memory_eye does not have driver. [/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:19]
+INFO: [Synth 8-6157] synthesizing module 'pc_eye' [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv:11]
+INFO: [Synth 8-6157] synthesizing module 'instruction_memory_eye' [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:13]
+CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file 'instructions.mem'; please make sure the file is added to project and has read permission, ignoring [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'instruction_memory_eye' (0#1) [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'pc_eye' (0#1) [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/pc_eye.sv:11]
+WARNING: [Synth 8-3848] Net instruction_memory in module/entity instruction_memory_eye does not have driver. [/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.srcs/sources_1/new/instruction_memory_eye.sv:19]
 WARNING: [Synth 8-7129] Port instruction_out[31] in module instruction_memory_eye is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instruction_out[30] in module instruction_memory_eye is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instruction_out[29] in module instruction_memory_eye is either unconnected or has no load
@@ -103,21 +108,21 @@ WARNING: [Synth 8-7129] Port addr_in[2] in module instruction_memory_eye is eith
 WARNING: [Synth 8-7129] Port addr_in[1] in module instruction_memory_eye is either unconnected or has no load
 WARNING: [Synth 8-7129] Port addr_in[0] in module instruction_memory_eye is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1813.773 ; gain = 366.797 ; free physical = 471 ; free virtual = 12324
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1817.484 ; gain = 404.797 ; free physical = 988 ; free virtual = 12094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1831.586 ; gain = 384.609 ; free physical = 475 ; free virtual = 12329
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1835.297 ; gain = 422.609 ; free physical = 998 ; free virtual = 12105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1839.590 ; gain = 392.613 ; free physical = 479 ; free virtual = 12334
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1843.301 ; gain = 430.613 ; free physical = 998 ; free virtual = 12105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1847.598 ; gain = 400.621 ; free physical = 479 ; free virtual = 12337
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1852.207 ; gain = 439.520 ; free physical = 990 ; free virtual = 12100
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -176,20 +181,20 @@ WARNING: [Synth 8-7129] Port instruction_fetched_out[2] in module pc_eye is eith
 WARNING: [Synth 8-7129] Port instruction_fetched_out[1] in module pc_eye is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instruction_fetched_out[0] in module pc_eye is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1965.504 ; gain = 518.527 ; free physical = 354 ; free virtual = 12219
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1969.145 ; gain = 556.457 ; free physical = 915 ; free virtual = 12088
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1980.379 ; gain = 533.402 ; free physical = 344 ; free virtual = 12209
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1984.988 ; gain = 572.301 ; free physical = 912 ; free virtual = 12085
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1980.379 ; gain = 533.402 ; free physical = 332 ; free virtual = 12197
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1992.996 ; gain = 580.309 ; free physical = 911 ; free virtual = 12084
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -207,37 +212,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 271 ; free virtual = 12134
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 271 ; free virtual = 12134
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 271 ; free virtual = 12134
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 271 ; free virtual = 12134
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 263 ; free virtual = 12126
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 263 ; free virtual = 12126
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -270,30 +275,30 @@ Report Instance Areas:
 |1     |top      |       |   215|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 263 ; free virtual = 12126
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 1 critical warnings and 98 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.191 ; gain = 693.215 ; free physical = 263 ; free virtual = 12126
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2140.199 ; gain = 693.215 ; free physical = 263 ; free virtual = 12126
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.809 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2136.816 ; gain = 724.121 ; free physical = 587 ; free virtual = 11760
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2154.066 ; gain = 0.000 ; free physical = 237 ; free virtual = 12103
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2150.684 ; gain = 0.000 ; free physical = 699 ; free virtual = 11875
 INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 4 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2250.660 ; gain = 0.000 ; free physical = 266 ; free virtual = 12147
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2245.277 ; gain = 0.000 ; free physical = 686 ; free virtual = 11875
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: 9c0b3054
 INFO: [Common 17-83] Releasing license: Synthesis
-16 Infos, 98 Warnings, 1 Critical Warnings and 0 Errors encountered.
+20 Infos, 98 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:25 . Memory (MB): peak = 2250.660 ; gain = 811.688 ; free physical = 266 ; free virtual = 12148
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1607.331; main = 1522.542; forked = 269.158
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3022.363; main = 2250.664; forked = 916.980
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:24 . Memory (MB): peak = 2245.277 ; gain = 840.594 ; free physical = 686 ; free virtual = 11875
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1523.204; main = 1523.204; forked = 269.237
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 2769.195; main = 2245.281; forked = 916.984
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2274.672 ; gain = 0.000 ; free physical = 266 ; free virtual = 12148
-INFO: [Common 17-1381] The checkpoint '/home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.dcp' has been generated.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2269.289 ; gain = 0.000 ; free physical = 686 ; free virtual = 11875
+INFO: [Common 17-1381] The checkpoint '/home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file pc_eye_utilization_synth.rpt -pb pc_eye_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Dec  3 18:15:28 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 14 13:46:45 2025...

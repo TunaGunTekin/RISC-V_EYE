@@ -3,22 +3,22 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Wed Dec  3 18:14:55 2025
-# Process ID         : 101082
-# Current directory  : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1
+# Start of session at: Sun Dec 14 13:46:13 2025
+# Process ID         : 76869
+# Current directory  : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1
 # Command line       : vivado -log pc_eye.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pc_eye.tcl
-# Log file           : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.vds
-# Journal file       : /home/tuna-gun/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/vivado.jou
+# Log file           : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/pc_eye.vds
+# Journal file       : /home/tuna-gun/GradProject/RISC-V_EYE/RISC-V_EYE_Pipelined_Core/RISC-V_EYE_Pipelined_Core.runs/synth_1/vivado.jou
 # Running On         : tunagun
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
-# CPU Frequency      : 2500.007 MHz
+# CPU Frequency      : 2500.055 MHz
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 16631 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20926 MB
-# Available Virtual  : 13913 MB
+# Available Virtual  : 13696 MB
 #-----------------------------------------------------------
 source pc_eye.tcl -notrace

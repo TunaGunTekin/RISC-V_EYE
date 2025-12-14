@@ -10,32 +10,65 @@
 
 
 module control_unit_eye(
-    input  logic [6:0] opcode_in,
-    input  logic [2:0] funct3_in,
-    input  logic       funct7b5_in,
+    input  logic  [6:0] opcode_in,
+    input  logic  [2:0] funct3_in,
+    input  logic        funct7b5_in,
 
+    //Execute Stage Control Signals 
     output logic  [2:0] imm_extend_op_select_decode_out,
-    output logic        alu_src_select_decode_out,
+    output logic        alu_src_a_select_decode_out, // 0: Rs1, 1: PC (AUIPC/JAL)
+    output logic        alu_src_b_select_decode_out, // 0: Rs2, 1: Immediate
     output logic  [3:0] alu_op_select_decode_out,
+    output logic        is_jalr_decode_out,
 
+    //Memory Stage Control Signals
     output logic        mem_read_enable_decode_out,
     output logic        mem_write_enable_decode_out,
-    output logic  [1:0] mem_to_reg_select_decode_out,
-    output logic        reg_write_enable_decode_out
+    
+    //Write Back Stage Control Signals
+    output logic        reg_write_enable_decode_out,
+    output logic  [1:0] result_source_select_decode_out,
+
+    //Hazard Unit Signals
+    output logic        branch_enable_decode_out,
+    output logic        jump_enable_decode_out
     );
+
+    always_comb begin
+        // Default values for control signals it prevent latches 
+        imm_extend_op_select_decode_out = 3'b000;
+        alu_src_a_select_decode_out = 1'b0;
+        alu_src_b_select_decode_out = 1'b0;
+        alu_op_select_decode_out = 4'b0000;
+        is_jalr_decode_out = 1'b0;
+
+        mem_read_enable_decode_out = 1'b0;
+        mem_write_enable_decode_out = 1'b0;
+
+        reg_write_enable_decode_out = 1'b0;
+        result_source_select_decode_out = 2'b00;
+
+        branch_enable_decode_out = 1'b0;
+        jump_enable_decode_out = 1'b0;
+    end
 
     always_comb begin
         case (opcode_in)
             `OP_LUI : begin
-                assign imm_extend_op_select_decode_out = 3'b100; // U-Type
-                assign alu_src_select_decode_out = 1'b1; // Immediate
-                assign alu_op_select_decode_out = 4'b0000; // ADD operation for LUI
+                // LUI : Rd = Imm.  
+                // LUI: Imm + 0 (Rs1=x0) varsayılır.
+                imm_extend_op_select_decode_out = 3'b100; // U-Type
+                reg_write_enable_decode_out = 1'b1;
+                alu_src_a_select_decode_out = 1'b1; // Rs1 is not used
+                alu_src_b_select_decode_out = 1'b1; // Immediate
+                alu_op_select_decode_out = 4'b0000; // ADD operation for LUI
                 // Control signals for LUI        
             end
             `OP_AUIPC : begin
-                assign imm_extend_op_select_decode_out = 3'b100; // U-Type
-                assign alu_src_select_decode_out = 1'b1; // Immediate
-                assign alu_op_select_decode_out = 4'b0000; // ADD operation for AUIPC
+                imm_extend_op_select_decode_out = 3'b100; // U-Type
+                alu_src_a_select_decode_out = 1'b1; // Rs1 = PC
+                alu_src_b_select_decode_out = 1'b1; // Immediate
+                alu_op_select_decode_out = 4'b0000; // ADD operation for AUIPC
                 // Control signals for AUIPC
             end
             `OP_JAL : begin
@@ -120,43 +153,43 @@ module control_unit_eye(
             `OP_ALU: begin
                 case ({funct7b5_in, funct3_in})
                     `ALU_ADD: begin
-                        assign alu_op_select_decode_out = 4'b0000; // ADD
+                        alu_op_select_decode_out = 4'b0000; // ADD
                         // Control signals for ADD
                     end
                     `ALU_SUB: begin
-                        assign alu_op_select_decode_out = 4'b0001; // SUB
+                        alu_op_select_decode_out = 4'b0001; // SUB
                         // Control signals for SUB
                     end
                     `ALU_AND: begin
-                        assign alu_op_select_decode_out = 4'b0010; // AND
+                        alu_op_select_decode_out = 4'b0010; // AND
                         // Control signals for AND
                     end
                     `ALU_OR: begin
-                        assign alu_op_select_decode_out = 4'b0011; // OR
+                        alu_op_select_decode_out = 4'b0011; // OR
                         // Control signals for OR
                     end
                     `ALU_XOR: begin
-                        assign alu_op_select_decode_out = 4'b1001; // XOR
+                        alu_op_select_decode_out = 4'b1001; // XOR
                         // Control signals for XOR
                     end
                     `ALU_SLT: begin
-                        assign alu_op_select_decode_out = 4'b0101; // SLT
+                        alu_op_select_decode_out = 4'b0101; // SLT
                         // Control signals for SLT
                     end
                     `ALU_SLTU: begin  
-                        assign alu_op_select_decode_out = 4'b1000; // SLTU  
+                        alu_op_select_decode_out = 4'b1000; // SLTU  
                         // Control signals for SLTU 
                     end 
                     `ALU_SLL: begin
-                        assign alu_op_select_decode_out = 4'b0111; // SLL
+                        alu_op_select_decode_out = 4'b0111; // SLL
                         // Control signals for SLL
                     end
                     `ALU_SRL: begin
-                        assign alu_op_select_decode_out = 4'b0110; // SRL
+                        alu_op_select_decode_out = 4'b0110; // SRL
                         // Control signals for SRL
                     end
                     `ALU_SRA: begin
-                        assign alu_op_select_decode_out = 4'b0100; // SRA
+                        alu_op_select_decode_out = 4'b0100; // SRA
                     end
                     default: begin
                         // Default case
@@ -166,39 +199,39 @@ module control_unit_eye(
             `OP_ALUI: begin
                 case (funct3_in)
                     `ALU_ADDI: begin
-                        assign alu_op_select_decode_out = 4'b0000; // ADDI
+                        alu_op_select_decode_out = 4'b0000; // ADDI
                         // Control signals for ADDI
                     end
                     `ALU_ANDI: begin
-                        assign alu_op_select_decode_out = 4'b0010; // ANDI
+                        alu_op_select_decode_out = 4'b0010; // ANDI
                         // Control signals for ANDI
                     end
                     `ALU_ORI: begin
-                        assign alu_op_select_decode_out = 4'b0011; // ORI
+                        alu_op_select_decode_out = 4'b0011; // ORI
                         // Control signals for ORI
                     end
                     `ALU_XORI: begin
-                        assign alu_op_select_decode_out = 4'b1001; // XORI
+                        alu_op_select_decode_out = 4'b1001; // XORI
                         // Control signals for XORI
                     end
                     `ALU_SLTI: begin
-                        assign alu_op_select_decode_out = 4'b0101; // SLTI
+                        alu_op_select_decode_out = 4'b0101; // SLTI
                         // Control signals for SLTI
                     end
                     `ALU_SLTIU: begin
-                        assign alu_op_select_decode_out = 4'b1000; // SLTIU
+                        alu_op_select_decode_out = 4'b1000; // SLTIU
                         // Control signals for SLTIU
                     end
                     `ALU_SLLI: begin
-                        assign alu_op_select_decode_out = 4'b0111; // SLLI
+                        alu_op_select_decode_out = 4'b0111; // SLLI
                         // Control signals for SLLI
                     end
                     `ALU_SRLI: begin
-                        assign alu_op_select_decode_out = 4'b0110; // SRLI
+                        alu_op_select_decode_out = 4'b0110; // SRLI
                         // Control signals for SRLI
                     end
                     `ALU_SRAI: begin
-                        assign alu_op_select_decode_out = 4'b0100; // SRAI
+                        alu_op_select_decode_out = 4'b0100; // SRAI
                         // Control signals for SRAI
                     end
                     default: begin

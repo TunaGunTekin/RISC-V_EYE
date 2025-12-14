@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "parameters.vh"
 //////////////////////////////////////////////////////////////////////////////////
 // Project Name: RISC-V EYE
 // Description: Real-Time Object Detection on FPGA Using RISC-V Architecture Graduation Project for Hacettepe University Electrical and Electronics Engineering. 
@@ -14,31 +15,33 @@ module pipeline_reg_if_id_eye(
 
     //Hazard Unit Signals
     input logic        clear_in,   // If branch clear the pipeline register
-    input logic        enable_in, // Enable Signal from Hazard Unit 1 => Enable , 0 => Stall 
+    input logic        stall_in, // Stall Signal from Hazard Unit 1 => Stall , 0 => Enable 
 
     //Inputs from IF Stage
-    input logic [31:0] instruction_fetched_in,
-    input logic [31:0] pc_plus_four_in,
-    input logic [31:0] pc_current_in,
+    input logic [`DATA_WIDTH-1:0] instruction_fetched_in,
+    input logic [`DATA_WIDTH-1:0] pc_plus_four_in,
+    input logic [`DATA_WIDTH-1:0] pc_current_in,
 
     //Outputs to ID Stage
-    output logic [31:0] instruction_decode_out,
-    output logic [31:0] pc_plus_four_out,
-    output logic [31:0] pc_current_out
+    output logic [`DATA_WIDTH-1:0] instruction_decode_out,
+    output logic [`DATA_WIDTH-1:0] pc_plus_four_out,
+    output logic [`DATA_WIDTH-1:0] pc_current_out
     );
 
-    always_ff @(posedge clk or negedge reset) begin
-        if (!reset == 1'b1) begin
-            instruction_decode_out <= 32'd0;
-            pc_plus_four_out <= 32'd0;
-            pc_current_out <= 32'd0;
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset == 1'b1) begin
+            instruction_decode_out <= '0;
+            pc_plus_four_out <= '0;
+            pc_current_out <= '0;
 
         end else if (clear_in == 1'b1) begin
-            instruction_decode_out <= 32'd0;
-            pc_plus_four_out <= 32'd0;
-            pc_current_out <= 32'd0;
+            instruction_decode_out <= '0;
+            pc_plus_four_out <= '0;
+            pc_current_out <= '0;
 
-        end else if (enable_in == 1'b1) begin
+        end else if (stall_in == 1'b1) begin
+            // Do nothing, stall the pipeline register
+        end else begin
             instruction_decode_out <= instruction_fetched_in;
             pc_plus_four_out <= pc_plus_four_in;
             pc_current_out <= pc_current_in;
