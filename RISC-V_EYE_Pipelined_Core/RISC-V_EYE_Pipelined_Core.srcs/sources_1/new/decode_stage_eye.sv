@@ -40,6 +40,8 @@ module decode_stage_eye(
     output logic                        funct7b5_out
     );
 
+    logic [31:7] instruction_field;
+    assign instruction_field = instruction_decode_in[31:7];
     assign opcode_out   = instruction_decode_in[6:0];
     assign rd_addr_out  = instruction_decode_in[11:7];
     assign funct3_out   = instruction_decode_in[14:12];

@@ -19,8 +19,9 @@ module instruction_memory_eye(
     logic [`INST_WIDTH-1:0] instruction_memory [0:`MEM_SIZE-1];
 
     initial begin
-        // Load instructions from an external file into instruction memory
-        $readmemh("instructions.mem", instruction_memory);
+         for (int i = 0; i < 32; i++) begin // Initialize all registers to 0 on reset Can be skipped for synthesis tools that auto-initialize 
+               instruction_memory[i] <= 32'b0; // Synthesis tools may optimize this away also don't use for asic designs
+            end
     end
 
     assign instruction_out = instruction_memory[addr_in[31:2]];

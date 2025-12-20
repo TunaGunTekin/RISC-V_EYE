@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log pc_eye.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pc_eye.tcl
+EAStep vivado -log system_top_eye.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top_eye.tcl

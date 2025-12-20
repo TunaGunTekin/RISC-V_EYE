@@ -41,10 +41,10 @@ module pc_eye(
         end
     end
 
-    instruction_memory_eye instruction_memory (
+    /*instruction_memory_eye instruction_memory (
         .addr_in(pc_current_out),
         .instruction_out(instruction_fetched_out)
-    );
+    );*/
 
 
 endmodule

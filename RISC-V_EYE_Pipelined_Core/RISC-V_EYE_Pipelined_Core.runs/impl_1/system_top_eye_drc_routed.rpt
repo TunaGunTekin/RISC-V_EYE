@@ -1,0 +1,111 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sat Dec 20 12:43:01 2025
+| Host         : tunagun running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_drc -file system_top_eye_drc_routed.rpt -pb system_top_eye_drc_routed.pb -rpx system_top_eye_drc_routed.rpx
+| Design       : system_top_eye
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 13
++-----------+----------+----------------------------+--------+
+| Rule      | Severity | Description                | Checks |
++-----------+----------+----------------------------+--------+
+| PDRC-153  | Warning  | Gated clock check          | 7      |
+| REQP-1839 | Warning  | RAMB36 async control check | 4      |
+| RTSTAT-10 | Warning  | No routable loads          | 1      |
+| ZPS7-1    | Warning  | PS7 block required         | 1      |
++-----------+----------+----------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/alu_op_select_out_reg[3]_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/alu_op_select_out_reg[3]_i_2/O, cell core_inst/control_unit_inst/alu_op_select_out_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/alu_src_a_select_out_reg_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/alu_src_a_select_out_reg_i_2/O, cell core_inst/control_unit_inst/alu_src_a_select_out_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/imm_extend_op_select_out_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/imm_extend_op_select_out_reg[1]_i_2/O, cell core_inst/control_unit_inst/imm_extend_op_select_out_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/is_jalr_out_reg_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/is_jalr_out_reg_i_2/O, cell core_inst/control_unit_inst/is_jalr_out_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/reg_write_enable_out_reg_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/reg_write_enable_out_reg_i_2/O, cell core_inst/control_unit_inst/reg_write_enable_out_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net core_inst/control_unit_inst/result_source_select_out_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin core_inst/control_unit_inst/result_source_select_out_reg[1]_i_2/O, cell core_inst/control_unit_inst/result_source_select_out_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net core_inst/hazard_unit_inst/stall_fetch_out_reg_i_1_n_0 is a gated clock net sourced by a combinational pin core_inst/hazard_unit_inst/stall_fetch_out_reg_i_1/O, cell core_inst/hazard_unit_inst/stall_fetch_out_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 memory_inst/ram_reg has an input control pin memory_inst/ram_reg/WEA[0] (net: memory_inst/data_memory_write_enable_out) which is driven by a register (core_inst/ex_mem_register_inst/mem_write_enable_out_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 memory_inst/ram_reg has an input control pin memory_inst/ram_reg/WEA[1] (net: memory_inst/data_memory_write_enable_out) which is driven by a register (core_inst/ex_mem_register_inst/mem_write_enable_out_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 memory_inst/ram_reg has an input control pin memory_inst/ram_reg/WEA[2] (net: memory_inst/data_memory_write_enable_out) which is driven by a register (core_inst/ex_mem_register_inst/mem_write_enable_out_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 memory_inst/ram_reg has an input control pin memory_inst/ram_reg/WEA[3] (net: memory_inst/data_memory_write_enable_out) which is driven by a register (core_inst/ex_mem_register_inst/mem_write_enable_out_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+40 net(s) have no routable loads. The problem bus(es) and/or net(s) are core_inst/ex_mem_register_inst/mem_to_reg_select_out[1:0],
+core_inst/if_id_register_inst/instruction_decode_out[25],
+core_inst/if_id_register_inst/instruction_decode_out[26],
+core_inst/if_id_register_inst/instruction_decode_out[27],
+core_inst/if_id_register_inst/instruction_decode_out[28],
+core_inst/if_id_register_inst/instruction_decode_out[29],
+core_inst/if_id_register_inst/instruction_decode_out[31]
+memory_inst/instruction_memory_data_in[31:0].
+Related violations: <none>
+
+ZPS7-1#1 Warning
+PS7 block required  
+The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+Related violations: <none>
+
+
